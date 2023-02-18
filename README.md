@@ -6,3 +6,5 @@
 
 Не открывается файл bledom.py?
 Откройте bledom.cpython-311.pyc в папке __pycache__
+
+Эффекты пользователей https://github.com/KirillYT111/ilare-bledom-effects/tree/main
