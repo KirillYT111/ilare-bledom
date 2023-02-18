@@ -1,4 +1,6 @@
 # ILARE BLEDOM
+Перед первым запуском, установите компонент "beledom" (pip install bledom)
+
 В вашем списке bluetooth есть ELK-BLEDOM? 
 Значит ваша светодиодная лента лента поддерживает IlareBledom.
 
