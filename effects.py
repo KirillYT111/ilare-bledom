@@ -1,6 +1,15 @@
 from os import system
-system("cls")
+from utils import run_python, clear_screen
+
+clear_screen()
+
 print("Запуск IlareBledom effects")
-print("\nВведите название эффекта без расширения\nУстройство станет доступным только после закрытия эффекта")
-effect = input("Название эффекта(без расширения) >")
-system(f'start {effect}.py')
+print(
+    """\nВведите название эффекта без расширения\n
+    Устройство станет доступным только
+    после закрытия эффекта"""
+)
+
+effect = input("Название эффекта(без расширения) > ")
+
+run_python(f"{effect}.py")

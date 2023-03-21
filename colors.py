@@ -28,7 +28,6 @@ class CommandColor(str, Enum):
     YELLOW = "y"
     CYAN = "t"
     PURPLE = "p"
-    ORANGE = "o"
 
 
 COLORS = {
@@ -38,5 +37,4 @@ COLORS = {
     CommandColor.YELLOW.value: YELLOW,
     CommandColor.CYAN.value: CYAN,
     CommandColor.PURPLE.value: PURPLE,
-    CommandColor.ORANGE.value: ORANGE,
 }

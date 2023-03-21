@@ -1,37 +1,35 @@
-from time import sleep
-from bledom import BleLedDevice, run_sync
 from os import system
-import yaml
-version = "1.6"
-print("Запуск IlareBledom ", version)
-sleep(1)
-system("cls")
-async def main(device: BleLedDevice):
-	while True:
-		system("cls")
-		print("\nВстроеные эффекты:")
-		print("r - статический красный")
-		print("g - статический зеленый")
-		print("b - статический синий")
-		print("y - статический желтый")
-		print("t - статический бирюзовый")
-		print("p - статический фиолетовый")
-		print("o - открыть программу для чтения пользовательских эффектов")
-		effect = input("Введите имя эффекта >")
-		if effect == "r":
-			await device.set_color(255, 0, 0)
-		elif effect == "g":
-			await device.set_color(0, 255, 0)
-		elif effect == "b":
-			await device.set_color(0, 0, 255)
-		elif effect == "y":
-			await device.set_color(255, 255, 0)
-		elif effect == "t":
-			await device.set_color(0, 255, 255)
-		elif effect == "p":
-			await device.set_color(255, 0, 255)
-		elif effect == "o":
-			system("call effects.py")
-			exit()
+from time import sleep
 
-run_sync(main)
+import yaml
+
+from bledom import BleLedDevice, run_sync
+
+from colors import COLORS
+from utils import get_help_msg, clear_screen, run_python
+
+EFFECT = "o"
+version = "1.6"
+
+
+async def main(device: BleLedDevice):
+    while True:
+        clear_screen()
+        print(get_help_msg())
+        effect = input("Введите имя эффекта > ")
+        
+        if effect == EFFECT:
+            run_python("effects.py")
+
+        color = COLORS.get(effect)
+        if color is None:
+            continue
+
+        await device.set_color(*color)
+
+
+if __name__ == "__main__":
+    print("Запуск IlareBledom ", version)
+    sleep(1)
+    clear_screen()
+    run_sync(main)
