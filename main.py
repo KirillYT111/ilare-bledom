@@ -25,7 +25,7 @@ async def main(device: BleLedDevice):
         if color is None:
             continue
 
-        await device.set_color(*color)
+        await device.set_color(*color.get_raw_values())
 
 
 if __name__ == "__main__":
